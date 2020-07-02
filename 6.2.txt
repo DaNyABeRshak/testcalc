@@ -1,0 +1,89 @@
+Создать приложение по шаблону Console Applicaiton
+
+public static int Min(int a, int b, int c)
+
+{
+
+int min = a;
+
+if (min > b) min = b;
+
+if (min > c) min = c;
+
+return min;
+
+}
+
+Сделать класс Program общедоступным (public)
+
+Листинг тестируемой программы
+
+using System;
+
+using System.Collections.Generic;
+
+using System.Linq;
+
+using System.Text;
+
+namespace MinApp
+
+{
+
+public class Program
+
+{
+
+public static int Min(int a, int b, int c)
+
+{
+
+int min = a;
+
+if (min > b) min = b;
+
+if (min > c) min = c;
+
+return min;
+
+}
+
+static void Main(string[] args)
+
+{
+
+Console.WriteLine("Unit-testing in C#.");
+
+}
+
+}
+
+}
+
+Создание теста
+
+Тест создается отдельным проектом (Project) в решении (Solution). Тестируемая программа не знает об этом. Программа, которая будет тестировать (тестирующая программа) вызовет функции тестируемой программы. В нашем случае программа-тест будет вызывать функцию.
+
+int Min(int, int, int);
+
+Для данного решения (Solution) нужно добавить новый проект с помощью команды
+
+[TestMethod]
+
+public void TestMin()
+
+{
+
+//
+
+// TODO: Add test logic here
+
+//
+
+int min;
+
+min = Program.Min(3, 4, 5);
+
+Assert.AreEqual(4, min);
+
+}
